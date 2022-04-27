@@ -1,0 +1,27 @@
+clc
+close all
+
+I1=imread('aurora.jpg');
+I2=imread('bell.jpg');
+[r,c,z]=size(I2);
+I1r=imresize(I1,[r c]);
+
+Add=imadd(I1r,I2);
+sub=imsubtract(I1r,I2);
+mul=immultiply(I1r,I2);
+div=imdivide(I1r,I2);
+
+figure
+subplot(2,3,1)
+imshow(I1r),title('Image 1')
+subplot(2,3,2)
+imshow(I2),title('Image 2')
+subplot(2,3,3)
+imshow(Add),title('Add operation')
+subplot(2,3,4)
+imshow(sub),title('Subtract operation')
+subplot(2,3,5)
+imshow(mul),title('Multiply operation')
+subplot(2,3,6)
+imshow(sub),title('Divide operation')
+

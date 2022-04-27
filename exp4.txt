@@ -1,0 +1,12 @@
+% read the input image
+A = imread('princesses.jpg')
+
+% creation of unsharp filter
+H = fspecial('unsharp');
+
+% applying the unsharp masking
+B = imfilter(A,H);
+
+% DISPLAY OF INPUT AND OUTPUT IMAGES
+subplot(1,2,1), imshow(A), title('Original Image')
+subplot(1,2,2), imshow(B), title('Unsharp Masked Image')

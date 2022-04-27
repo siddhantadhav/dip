@@ -1,0 +1,29 @@
+clc
+close all
+myimageA=imread('jasmine.jpg');
+subplot(5,2,1)
+imshow(myimageA),title('Original image A')
+myimageadjustA=imresize(myimageA,[256,256]);
+mybinaryimageA=im2bw(myimageadjustA);
+subplot(5,2,2)
+imshow(mybinaryimageA),title('Binary Image-Image A');
+myimageB=imread('rupunzel.jpg');
+subplot(5,2,3)
+imshow(myimageB),title('Original image B')
+myimageadjustB=imresize(myimageB,[256,256]);
+mybinaryimageB=im2bw(myimageadjustB);
+subplot(5,2,4)
+imshow(mybinaryimageB),title('Binary Image-Image B');
+subplot(5,2,5)
+resultnot=~mybinaryimageA;
+imshow(mat2gray(resultnot)),title('NOT operation on Image A');
+subplot(5,2,6)
+resultxor=xor(mybinaryimageA,mybinaryimageB);
+imshow(mat2gray(resultxor)),title('Image A XOR Image B');
+subplot(5,2,7)
+resultor=mybinaryimageA | mybinaryimageB;
+imshow(mat2gray(resultor)),title('Image A OR Image B');
+subplot(5,2,8)
+resultand=mybinaryimageA & mybinaryimageB;
+imshow(mat2gray(resultand)),title('Image A AND Image B');
+

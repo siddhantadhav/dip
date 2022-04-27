@@ -1,0 +1,23 @@
+clear all
+close all
+clc
+
+I=rgb2gray(imread('bell.jpg'));
+Isp=imnoise(I,'salt & pepper',0.5);
+Ig=imnoise(I,'gaussian',0.5);
+
+medf=@(x)median(x(:));
+med_sp=nlfilter(Isp,[3 3],medf);
+med_g=nlfilter(Ig,[3 3],medf);
+
+figure
+subplot(2,3,1)
+imshow(I),title('\bf\fontsize{8} Original Image ');
+subplot(2,3,2)
+imshow(Isp),title('\bf\fontsize{8} Image with salt&pepper ');
+subplot(2,3,3)
+imshow(Ig),title('\bf\fontsize{8} Image with gaussian noise ');
+subplot(2,3,4)
+imshow(med_sp),title('\bf\fontsize{8} Filtered Image ');
+subplot(2,3,5)
+imshow(med_g),title('\bf\fontsize{8} Filtered Image ');

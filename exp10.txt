@@ -1,0 +1,19 @@
+% image opening and closing 
+close all;
+clear all;
+clc;
+%opening operation
+I=imread('rupunzel.jpg');
+se1=strel('square',15);
+io=imopen(I,se1);
+figure
+imshow(I);title('Original Image');
+figure
+imshow(io);
+title('image after opening operation');
+%closing operation
+se2=strel('disk',15);
+ic=imclose(I,se2);
+figure
+imshow(ic);
+title('image after closing operation');
